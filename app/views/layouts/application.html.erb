@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LogicDaemon</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+    </header>
+    <div class="navigation">
+      <center>
+        <div class="nav-buttonWrapper">
+          <%= link_to "Home", logic_home_path, {:class => current_class?(logic_home_path)} %>
+          <%= link_to "Logic Primer", logic_primer_path, {:class => current_class?(logic_primer_path)}  %>
+          <%= link_to "Quizmaster", logic_quizmaster_path, {:class => current_class?(logic_quizmaster_path)}  %>
+          <%= link_to "Logic Daemon", logic_daemon_path, {:class => current_class?(logic_daemon_path)}  %>
+          <%= link_to "Logic Checkers", logic_checkers_path, {:class => current_class?(logic_checkers_path)}  %>
+        </div>
+      </center>
+    </div>
+    
+    <div class="content">
+        <%= yield %>
+    </div>
+    
+    <div class="footer">
+      <hr style="margin: 0em">
+      <center>
+        <table style="border:3px solid black; bottom:10; text-align: center;">
+            <tr>
+                <td>
+                    Logic.tamu.edu website is © 1998-2013 by Chris Menzel and Colin Allen. All rights reserved.
+                </td>
+            </tr>
+            <br/>
+            <tr>
+                <td>
+                    The <em>Logic Primer</em> and associated artwork is © 1992-2001 by The MIT Press.  All rights reserved to authors Colin Allen and Michael Hand are also asserted.
+                </td>
+            </tr>
+        </table>
+      </center>
+      <br/>
+    </div>
+  </body>
+</html>

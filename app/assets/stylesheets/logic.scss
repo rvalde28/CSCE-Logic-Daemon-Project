@@ -1,0 +1,51 @@
+// Place all the styles related to the Logic controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+header{
+}
+.content{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.footer{
+    bottom: 0;
+    position:fixed;
+    background: #eeeeee;
+    padding-top: 0px;
+    width: 100%;
+}
+
+.accordion {
+    background-color: rgb(0, 153, 187);
+    width: 30%;
+}
+
+.accordion-group {
+    margin-bottom: 2px;
+}
+
+.accordion-heading {
+    background-color: #444444;
+    color: gold;
+    padding-left: 10px;
+}
+
+.accordion-heading * {
+    border: none;
+}
+
+.accordion-body {
+    padding: 10px 10px 5px 10px;
+}
+
+.accordion-body * {
+    margin-bottom: 5px;
+}
+
+.accordion-body .error_box {
+    color: gold;
+    font-weight: bold;
+}

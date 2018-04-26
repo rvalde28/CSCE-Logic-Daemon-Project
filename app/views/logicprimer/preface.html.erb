@@ -1,0 +1,100 @@
+<html><head></head><body bgcolor="white">
+<font size="-1"><em>©1992-2001 The MIT Press.  Reproduction by any means strictly prohibited.</em></font>
+
+<h2>Preface</h2>
+
+<p><b>To the Student</b>
+</p><p>The most important thing for you to know about this book is that it is
+      designed to be used with a teacher. You should not expect to learn
+      logic from this book alone (although it will be possible if you have had
+      experience with formal systems or can make use of the website at
+      http://mitpress.mit.edu/LogicPrimer/). We have deliberately reduced to
+      a minimum the amount of explanatory material, relying upon your
+      instructor to expand on the ideas. Our goal has been to produce a text
+      in which all of the material is important, thus saving you the expense
+      of a yellow marker pen. Consequently, you should never turn a page of
+      this book until you understand it thoroughly.
+
+
+
+</p><p>The text consists of <i>Definitions</i>, Examples, <i>Comments</i>, and Exercises.  (Exercises marked with asterisks are answered at the back of the book.)  The comments are of two sorts.  Those set in full-size type  contain material we deem essential to the text.  Those set in smaller type are relatively incidental--the ideas they contain are not essential to the flow of the book, but they provide perspective on the two logical systems you will learn.
+
+</p><p>In this age of large classes and diminished personal contact between students and their teachers, we hope this book promotes a rewarding learning experience.
+
+</p><p><b>To the Teacher</b>
+</p><p>We wrote this book because we were dissatisfied with the logic texts now available.  The authors of those texts talk too much.  Students neither need nor want page after page of explanation that require them to turn back and forth among statements of rules, examples, and discussion.  They prefer having their teachers explain things to them--after all, students take notes.  Consequently, one of our goals has been to produce a text of minimal chattiness, leaving to the instructor the task of providing explanations.  Only an instructor in a given classroom can be expected to know how best to explain the material to the students in that class, and we choose not to force upon the instructor any particular mode of explanation.
+
+
+</p><p>Another reason our for dissatisfaction was that most texts contain material that we are not interested in teaching in an introductory logic class.  Some logic texts, and indeed some very popular ones, contain chapters on informal fallacies, theories of definition, or inductive logic, and some contain more than one deductive apparatus.  Consequently, we found ourselves ordering texts for a single-semester course and covering no more than half of the material in them.  This book is intended for a one-semester course in which propositional logic and predicate logic are introduced, but no metatheory.  (Any student who has mastered the material in this book will be well prepared to take a second course on metatheory, using Lemmon's classic, <i>Beginning Logic</i>, or even Tennant's <i>Natural Logic</i>.)
+
+</p><p>We prefer systems of natural deduction to other ways of representing arguments, and we have adopted Lemmon's technique of explicitly tracking assumptions on each line of a proof.  We find that this technique illuminates the relation between conclusions and premises better than other devices for managing assumptions.  Besides that, it allows for shorter, more elegant proofs.  A given assumption can be discharged more than once, so that it need not be assumed again in order to be discharged again.  Thus, the following is possible, and there is no need to assume P twice:
+
+</p><pre>  1	(1)	P → (Q &amp; R)		assume
+  2	(2)	P			assume
+  1,2	(3)	Q &amp; R			from 1,2
+  1,2	(4)	Q			from 3
+  1,2	(5)	R			from 3
+  1	(6)	P → Q			from 4, discharge 2
+  1	(7)	P → R			from 5, discharge 2
+  1	(8)	(P → Q) &amp; (P → R)	from 6,7
+</pre>
+
+<p>Clearly, the notion of subderivation has no application in such a system.  The alternative approach involving subderivations allows a given assumption to be discharged only once, so the following is needed:
+
+</p><pre> 	(1)	P → (Q &amp; R)		assume
+ 	(2)	P			assume
+ 	(3)	Q &amp; R			from 1,2
+ 	(4)	Q			from 3
+ 	(5)	P → Q			from 4, discharge 2
+ 	(6)	P			assume
+ 	(7)	Q &amp; R			from 1,6
+ 					(same inference as at 3!)
+ 	(8)	R			from 7
+ 	(9)	P → R			from 8, discharge 6
+ 	(10)	(P → Q) &amp; (P → R)	from 5,9
+</pre>
+<p>The redundancy of this proof is obvious.  Nonetheless, an instructor who prefers subderivation-style proofs can use our system by changing the rules concerning assumption sets as follows: (i) Every line has the assumption set of the immediately preceding line, except when an assumption is discharged. (ii) The only assumption available for discharge at a given line is the highest-numbered assumption in the assumption set.  (iii) After an assumption has been discharged, that line number can never again appear in a later assumption set.  (In other words, the assumption-set device becomes a stack or a first-in-last-out memory device.)
+
+</p><p>There are a number of  other differences between our system and Lemmon's, including a different set of primitive rules of proof.  What follows is a listing of the more significant differences between our system and Lemmon's, together with reasons we prefer our system.
+</p><ul>
+<p></p><li>		Lemmon disallows vacuous discharge of assumptions.  We allow it.  Thus it is correct in our system to discharge an assumption by reductio ad absurdum when the contradiction does not depend on that assumption.  Whenever vacuous discharge occurs, one can obtain a Lemmon-acceptable deduction by means of trivial additions to the proof.  We prefer to avoid these additions.  (Note that Lemmon's preclusion of vacuous discharge means that accomplishing the same effect requires redundant steps of &amp;-introduction  and &amp;-elimination.  For instance, Lemmon requires (a) to prove P |- Q → P, while we allow (b).
+
+<pre>	(a)
+	1	(1)	P	assume
+	2	(2)	Q	assume
+	1,2	(3)	Q &amp; P	from 1,2
+	1,2	(4)	P	from 3
+	1	(5)	Q → P	from 4, discharge 2
+
+	(b)
+	1	(1)	P	assume
+	2	(2)	Q	assume
+	1	(3)	Q → P	from 1, discharge 2
+</pre>
+
+<p></p></li><li>	Lemmon's characterization of proof entails that an argument has been established as valid only when a proof has been given in which the conclusion depends on all of the argument's premises. This is needlessly restrictive, since in some valid arguments the conclusion is in fact provable from a proper subset of the premises.  We remove this restriction, allowing a proof for a given argument to rest its conclusion on some but not all of the argument's premises.
+
+<p></p></li><li>	We have replaced Lemmon's primitive v-Elimination rule by what is normally known as Disjunctive Syllogism (DS).  We realize that Lemmon's rule is philosophically preferable, as it is a pure rule; however, DS is so much easier to learn that pedagogical considerations outweigh philosophical ones in this case.
+
+<p></p></li><li>	Despite the preceding point, we have kept the Existential-Elimination (∃-Elimination) rule used by Lemmon.  Although slightly more complicated than the more common rule of ∃-Instantiation, this rule frees the student from having to remember to instantiate existential quantifications before instantiating universal quantifications.  It also frees the student from having to examine the not-yet-reached conclusion of the argument, to determine which instantial names are unavailable for a given application of ∃-Instantiation.  Furthermore, at any point in a proof using ∃-elimination, some argument has been proven.  If the proof has reached a line of the form
+
+<p>		m,...,n	(k)	z	...  
+
+</p><p>	then the sentence z has been established as provable from the premise set {m,...,n}.  (Here the right-hand ellipsis indicates which rule was applied to yield z, and which earlier sentences it was applied to.)  This is quite useful in helping the student understand what is going on in a proof.  In a system using ∃-instantiation, however, this feature is absent: there are correct proofs some of whose lines do not follow from previous lines, since the rule of ∃-instantiation is not a valid rule.  For instance, the following is the beginning of a proof using ∃-instantiation.
+</p><pre>	1	(1)	∃xFx		assumption
+	1	(2)	Fa		1 ∃-instantiation
+</pre>
+<p>	Line 2 does not follow from line 1.  This difference between ∃-elimination and ∃-instantiation can be put as follows: in an ∃-elimination proof, you can stop at any time and still have a correct proof of some argument or other, but in an ∃-instantiation proof, you cannot stop whenever you like.  It seems to us that these implications of ∃-instantiation's invalidity outweigh the additional complexity of ∃-elimination.  In an ∃-elimination system, not only is the <i>system</i> sound as a whole, but every rule is individually valid; this is not true for an ∃-instantiation system.
+
+
+</p><p></p></li><li>	Whereas Lemmon requires that existentialization (existential generalization) replace all tokens of the generalized name by tokens of the bound variable, we allow existentialization to pick up only some of the tokens of the generalized name.
+
+<p></p></li><li>	We have abandoned Lemmon's distinction between proper names and arbitrary names, which is not essential in a natural deduction system.  The conditions on quantifier rules ensure that the instantial name is arbitrary in the appropriate sense.  (We comment on this motivation for the conditions in the text.)
+</li></ul>
+    
+<p>In many cases, we have deliberately not used quotation marks to indicate that an expression of the formal language is being mentioned.  In general, we use single quotes to indicate mention only when confusion might result.  (We hope no one is antagonized by this flaunting of convention.  Trained philosophers may at first find the absence of quotes disconcerting, but we believe that we are making things easier without leading the student astray significantly.)
+
+</p><p>We have tried to present the material in a way that reveals clearly the systematic organization of the text.  This manner of presentation makes it especially easy for students to review the material when studying, and to look up particular points when the need arises.  Consequently, there is little discursive prose in the text, and what seemed unavoidable has been relegated to the <i>Comments</i>.  We hope to have produced a small text that is truly student-oriented but that still allows the instructor a maximum of flexibility in presenting the material.
+
+
+</p></body></html>

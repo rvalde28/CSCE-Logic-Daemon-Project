@@ -1,0 +1,147 @@
+
+Cucumber
+
+---------------------------------
+Install:
+
+group :test, :development do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+
+bundle install
+
+rails generate cucumber:install
+
+---------------------------------
+
+Run:
+
+rake cucumber
+
+cucumber   >> runs all
+
+cucumber --tags @tag_name   >> only runs scenarios tagged with @tag_name
+
+-----------------------------------
+Writing test cases in Cucumber
+
+
+2 types of files: Feature and Test Definitions
+
+root/features/<feature>/feature.feature
+features/step_definitions/steps.rb
+
+Features can be in root features directory or grouped into subfolders based on object/action
+
+To keep it DRY:
+Use a Page Object Pattern should be mapped to a Ruby class file,
+and each method within the class represents a page object on the page.
+
+Expect:
+The rspec-expectations library is bundled with many built-in matchers for testing validation.
+Each of the matchers can be used with expect(..).to or expect(..).not_to to define positive
+and negative expectations respectively on an object under test.
+
+
+===========================================
+Plain English (.feature file)
+
+
+Feature: <feature title>
+As a <persona|role>
+I want to <action>
+So that <outcome>
+
+EX:
+Feature: Refund item
+
+  Sales assistants should be able to refund customers' purchases.
+  This is required by the law, and is also essential in order to
+  keep customers happy.
+
+  Rules:
+  - Customer must present proof of purchase
+  - Purchase must be less than 30 days ago
+
+  Scenario: Jeff returns a faulty microwave
+    Given Jeff has bought a microwave for $100
+    And he has a receipt
+    When he returns the microwave
+    Then Jeff should be refunded $100
+	
+--------------------------------------
+
+Keywords:	
+Feature
+Scenario == example of business rule with steps
+Given, When, Then, And, But == steps
+Background == Used to gather repeated steps into group (given, and, etc)
+Scenario Outline == complex business rule with variable i/o values <value>
+Examples == table of example values used with scenario outline
+""" (Doc Strings)
+| (Data Tables)
+@ (Tags)
+# (Comments)
+
+EX:
+Scenario Outline: feeding a suckler cow
+  Given the cow weighs <weight> kg
+  When we calculate the feeding requirements
+  Then the energy should be <energy> MJ
+  And the protein should be <protein> kg
+
+  Examples:
+    | weight | energy | protein |
+    |    450 |  26500 |     215 |
+    |    500 |  29500 |     245 |
+    |    575 |  31500 |     255 |
+    |    600 |  37000 |     305 |
+
+
+--------------------------------------
+
+ONLY 3-5 steps per scenario!
+
+Scenario: User logs in
+
+  Given I am on the homepage
+
+  When I log in
+
+  Then I should see a login notification
+
+
+===========================================
+Ruby
+
+For each scenario, list execution step-by-step in Ruby:
+Takes the string after a keyword and defines an action to perform
+
+EX:
+Feature: Welcome Message
+
+When(/^I go to the homepage$/) do
+  visit root_path
+end
+
+Then(/^I should see the welcome message$/) do
+  expect(page).to have_content("Hello Cucumber")
+end
+
+--------------------------------------
+
+JavaScript
+
+You can also check javascript execution, as JavaScript is /not run/ by Cucumber
+without the @javascript tag
+
+EX:
+Feature: Link Click
+
+@javascript
+Scenario: User clicks the link
+Given I am on the homepage
+When I click the provided link
+Then I should see the link click confirmation

@@ -1,0 +1,13 @@
+<!-- Quiz Question for QuizMaster -->
+<form action="">
+	<h2> Answer the following question from <%= @question_key %></h2>
+	<div>
+		<label> Insert Question </label>
+		<%= expand_universe_question("PvQ").html_safe %>
+	</div>
+	<div>
+		<input type="submit" name="check_button" value="Check Answers">
+		<input type="submit" name="reset_button" value="Reset Answers">
+		<input type="submit" name="menu_button" value="Main Menu">
+	</div>
+</form>

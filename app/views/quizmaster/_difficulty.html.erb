@@ -1,0 +1,14 @@
+<!-- Proof Difficulty Level Select Body for QuizMaster -->
+<form action="">
+	<div>
+		Choose problem difficulty level for exercise <%= @qKey %>: 
+		<input type="radio" name="diff_level" value="low" checked="checked"> low: These problems are easy. <br>
+		<input type="radio" name="diff_level" value="med"> medium: These problems are medium hard. <br>
+		<input type="radio" name="diff_level" value="high"> hard: These problems are difficult.
+	</div>
+	<p>
+		The difficulty levels are classified based on the ratio of successful to total proof attempts made by the Quizmaster users.
+	</p>
+	<input type="submit" name="generate_quiz" value="Generate Quiz">
+	<input type="submit" name="menu" value="Main Menu">
+</form>

@@ -1,0 +1,46 @@
+<div class="CheckersMain">
+	
+	<!--To avoid using static tables I'll set these up properly as columns in css later.-->
+	<div class="WFFChecker">
+		<form>
+			<h2>WFF Checker</h2>
+			Enter the formula to check:
+			<input type="text" name="WFFInput" value=<%= @WFFInput %> >
+			<input value="Evaluate" name="evaluate" type="submit" onClick="history.go(0)">
+		</form>
+					
+
+	<div id="profile-information" class="">
+		<div class="row pad-top">
+			<div class="col-xs-6 col-sm-6 field-row">
+				<div class="roboto bold black field-label">
+					<%=simple_format(@result)%>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="EquivalencyCheck">
+		<h2>Equivalency Checker</h2>
+			Enter the formulas to compare: <br>	
+			<form>
+				<input type="text" name="formula1" value=<%= @formula1 %> >
+				<input type="text" name="formula2" value=<%= @formula2 %> >
+				<input value="Check" name="check" type="submit" onClick="shistory.go(0)">
+			</form>
+			<div id="profile-information" class="">
+			<div class="row pad-top">
+				<div class="col-xs-6 col-sm-6 field-row">
+					<div class="roboto bold black field-label">
+						<%=simple_format(@eqResult)%>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+
+</script>

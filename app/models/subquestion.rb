@@ -1,0 +1,3 @@
+class Subquestion < ApplicationRecord
+    
+end

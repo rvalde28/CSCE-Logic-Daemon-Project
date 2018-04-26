@@ -1,0 +1,8 @@
+# Ignore development log
+log/
+
+# Ignore Temporary folder
+tmp/
+
+# Ignore SimpleCov coverage files
+coverage/

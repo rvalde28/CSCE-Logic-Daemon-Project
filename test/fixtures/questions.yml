@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key_number: MyString
+  content: MyText
+  set_difficulty: false
+
+two:
+  key_number: MyString
+  content: MyText
+  set_difficulty: false

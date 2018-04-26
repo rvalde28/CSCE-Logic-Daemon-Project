@@ -1,0 +1,174 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+html {
+  overflow-y: scroll;
+}
+.nav-buttonWrapper {
+    list-style-type: none;
+	text-align: center;
+    margin: 0;
+    padding: 0;
+    min-width: 70em;
+    overflow: hidden;
+    background-color: #2A3132;
+}
+
+.nav-buttonWrapper .nav-button{
+	display: inline-block;
+    float: none;
+}
+
+.nav-buttonWrapper .nav-button-active{
+	display: inline-block;
+    float: none;
+}
+
+.nav-button {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 10vw;
+	min-width: 10em;
+}
+
+.nav-button:hover {
+    background-color: #111;
+} 
+
+.nav-button-active {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #336B87;
+	box-shadow: 0px 5px 0px #763626;
+  	padding: 13px 16px;
+	border-radius:1px;
+    width: 10vw;
+	min-width: 10em;
+}
+
+.nav-button-active:hover {
+    background-color: #90AFC5;
+	box-shadow: 0px 5px 0px #763626;
+  	padding: 13px 16px;
+
+}
+
+table.authors {
+    text-align: center;
+    bottom:80;
+    width:99%;
+    padding-top:10px;
+}
+
+.image img{
+    height: 35vw;
+    width: 25vw;
+	max-height:750em;
+	max-width:500em;
+	min-height:7.5em;
+	min-width:5em;
+}
+
+.home_paragraph {
+    padding-left: 30vw;
+    padding-right: 5vw;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: Georgia, serif; font-style: italic; color: #004060; }
+body {
+    background-color: #eeeeee;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #1e1e1e;
+}
+
+.sideBarWrapper {
+	position: absolute;
+	top:10.2em;
+	background-color: #23282e;
+	padding: 10px 10px 5px 10px;
+	margin-left:1vw;
+}
+
+.sideBarTitle {
+	font-size: 1em;
+	color: white;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.sideBar {
+	display: block;
+	border: none;
+	border-left: 3px solid transparent;
+	padding: 7px;
+	width: 20em;
+	background-color: #2e353d;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: .7em;
+    margin: 4px 2px;
+}
+
+.sideBar:hover {
+	transition: background-color 1.5s ease;
+	border-left: 3px solid #d19b3d;
+	background-color: #4f5b69;
+}
+
+.sideBar:active {
+	  transform: translateY(1px);
+}
+
+
+.palette {
+    position: absolute;
+    cursor: move;
+    top: 10.2em;
+    background-color: #23282e;
+    padding: 7.5px 7.5px 5px 7.5px;
+}
+
+.palette-button {
+    border-color: #eeeeee;
+	padding: 5px;
+	width: 4.5em;
+	background-color: #2e353d;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: .7em;
+    margin: 4px 2px;
+}
+
+.palette-button:hover {
+	transition: background-color 1.0s ease;
+	color: #d19b3d;
+	background-color: #4f5b69;
+}
+
+.palette-button:active {
+	transform: translateY(1px);
+}

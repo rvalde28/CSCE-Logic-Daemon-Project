@@ -1,0 +1,60 @@
+<!-- Main Menu for QuizMaster -->
+<!-- Note: Intended for accordion CSS, however couldn't make it work and ran out of time. -->
+
+<div class="accordion">
+	<% (1..4).each do |chapter_num| %>
+		<form method="" action="">
+			<input type="hidden" name="user" value=<%= @nickname %> >
+			<div class="accordion-group">
+				<div class="accordion-heading"> <!-- Note: Use 'chapter_num < 3' because at the time of creation only had 4 chapters, 2 chapters per Logic section -->
+					<label onclick="accordionActions()"> <% if chapter_num < 3 %> (Sentential Logic) <% else %> (Predicate Logic) <% end %>Chapter  <%= chapter_num %></label> <br>
+				</div>
+				
+				<div class="accordion-body">
+					<select name="question_key" >
+						<% generate_subsections(chapter_num).each do |key, value| %>
+							<% if key and value %>
+								<option value=<%= key %> > <%= value %> </option>
+							<% end %>
+						<% end %>
+					</select>
+					<div>
+						<input type="radio" name="user_selection" value="Random" checked="checked"> Random
+						<input type="radio" name="user_selection" value="User Preference" > User Preference
+					</div>
+					<input type="hidden" name="score" value=<%= @score %>>
+					<input type="hidden" name="qsofar" value=<%= @qsofar %>>
+					<input type="hidden" name="attempt" value=<%= @attempt %>>
+					<button type="submit" name="generate_quiz" value="generate_quiz" > Generate Quiz </button><br>
+				</div>
+			</div>
+		</form>
+	<% end %>
+</div>
+
+
+<!-- End of ERB code. Below is script for accordion action -->
+
+<script>
+	function accordionActions() {
+    
+	    var acc = document.getElementsByClassName("accordion-header");
+	    
+	    if(acc) {
+	        for (var i = 0; i < acc.length; i++) {
+	            acc[i].addEventListener("click", function() {
+	        
+	                /* Toggle between hiding and showing the active panel */
+	                var body = this.nextElementSibling;
+	                if (body.style.display === "block") {
+	                    body.style.display = "none";
+	                } else {
+	                    body.style.display = "block";
+	                }
+	            });
+	        }
+	    }
+	    /* Accordion Dropdown JS taken from W3: https://www.w3schools.com/howto/howto_js_accordion.asp */
+	};
+	
+</script>
