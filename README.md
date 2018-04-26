@@ -38,6 +38,9 @@ and skip down to the section Programming in an erb File
 Prover9 Mace4 (LADR) Manual
 https://www.cs.unm.edu/~mccune/mace4/manual/2009-11A/
 
+Demo of Website Rails: 
+https://logic-daemon.herokuapp.com/logic/daemon
+
 *** Download from here: https://www.cs.unm.edu/~mccune/mace4/download/
 *** Untar file: tar -zxvf filename.tar.gz
 *** Move to folder called filename
